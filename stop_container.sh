@@ -1,18 +1,15 @@
 #!/bin/bash
-set -e
 
-# Container name
-CONTAINER_NAME="sirishassss/simple-python-flask-app"
+# Define your image name
+IMAGE_NAME="sirishassss/simple-python-flask-app"
 
-# Stop and remove existing container if it exists
-if docker ps -a --format '{{.Names}}' | grep -q "^${CONTAINER_NAME}$"; then
-    echo "Stopping and removing existing container..."
-    docker stop "$CONTAINER_NAME" || true
-    docker rm "$CONTAINER_NAME" || true
+# Get the container ID or name running the image
+CONTAINER_ID=$(docker ps -q -f "ancestor=$IMAGE_NAME")
+
+# Check if a container ID was found
+if [ -z "$CONTAINER_ID" ]; then
+  echo "No container found for image $IMAGE_NAME."
 else
-    echo "No existing container found with the name $CONTAINER_NAME."
+  echo "Stopping container with ID $CONTAINER_ID..."
+  docker stop "$CONTAINER_ID"
 fi
-
-# Run the new container
-echo "Running new container..."
-docker run -d -p 5001:5001 --name "$CONTAINER_NAME" "$CONTAINER_NAME"
