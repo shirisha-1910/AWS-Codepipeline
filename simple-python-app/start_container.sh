@@ -7,5 +7,5 @@ PORT=5001
 docker pull sirishassss/simple-python-flask-app:latest
 
 # Run the Docker image as a container
-docker run -d p 5001:5001 sirishassss/simple-python-flask-app:latest
+docker run -d python -p 5001:5001 sirishassss/simple-python-flask-app:latest
 
