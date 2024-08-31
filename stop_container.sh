@@ -11,5 +11,5 @@ if [ -z "$CONTAINER_ID" ]; then
   echo "No container found for image $IMAGE_NAME."
 else
   echo "Stopping container with ID $CONTAINER_ID..."
-  docker stop "$CONTAINER_ID"
+  sudo docker stop "$CONTAINER_ID"
 fi
