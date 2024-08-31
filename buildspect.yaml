@@ -1,0 +1,30 @@
+version: 0.2
+
+env:
+  variables:
+    DOCKER_REGISTRY_USERNAME: sirishassss
+    DOCKER_REGISTRY_PASSWORD: Docker@18
+    DOCKER_REGISTRY_URL: docker.io
+    
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+  pre_build:
+    commands:
+      - echo "Installing dependencies..."
+      - pip install -r requirements.txt
+  build:
+    commands:
+      - echo "Running tests..."
+      - echo "Building Docker image..."
+      - echo "Docker@18" | docker login -u "sirishassss" --password-stdin "docker.io"
+      - docker build -t "docker.io/sirishassss/simple-python-flask-app:latest" .
+      - docker push "docker.io/sirishassss/simple-python-flask-app:latest"
+  post_build:
+    commands:
+      - echo "Build completed successfully!"
+artifacts:
+  files:
+    - '**/*'
+  base-directory: '.'
