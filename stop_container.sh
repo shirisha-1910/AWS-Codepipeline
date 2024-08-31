@@ -4,7 +4,7 @@
 IMAGE_NAME="sirishassss/simple-python-flask-app"
 
 # Get the container ID or name running the image
-CONTAINER_ID=$(docker ps -q -f "ancestor=$IMAGE_NAME")
+# CONTAINER_ID=$(docker ps -q -f "ancestor=$IMAGE_NAME")
 
 # # Check if a container ID was found
 # if [ -z "$CONTAINER_ID" ]; then
