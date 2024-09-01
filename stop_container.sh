@@ -19,9 +19,6 @@ else
   sudo docker stop "$CONTAINER_ID"
   sudo docker rm "$CONTAINER_ID"
 fi
-  echo Hi stopping
-else
-  echo "Port $PORT is not in use."
+echo Hi stopping
 fi
-
 
