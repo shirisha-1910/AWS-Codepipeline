@@ -2,6 +2,11 @@
 
 # Define your image name
 IMAGE_NAME="sirishassss/simple-python-flask-app:latest"
+PORT=5000
+
+# Check if port is in use
+if sudo lsof -i :$PORT > /dev/null; then
+  echo "Port $PORT is in use. Stopping existing container..."
 
 # Get the container ID or name running the image
 CONTAINER_ID=$(docker ps -a -q  --filter ancestor="$IMAGE_NAME")
