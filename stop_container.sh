@@ -20,5 +20,7 @@ else
   sudo docker rm "$CONTAINER_ID"
 fi
 echo Hi stopping
+else
+echo port not in use
 fi
 
