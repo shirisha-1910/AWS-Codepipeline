@@ -24,6 +24,12 @@ we'll create an AWS CodePipeline to automate the continuous integration process 
 - Save the CodeBuild project and go back to CodePipeline.
 - Continue configuring the pipeline stages.
 - Review the pipeline configuration and click on the "Create pipeline" button to create your AWS CodePipeline.
+  
+  ### Final View of Codepipeline
+  
+  ![output](images/pipeline.png)
+  ![output](images/linepipe.png)
+
 
 
 ## 2. Configure AWS CodeBuild
@@ -38,9 +44,32 @@ Here, we'll configure AWS CodeBuild to build Python application based on the spe
 - Specify the build commands, such as installing dependencies and running tests. Customize this based on application's requirements.
 - Set up the artifacts configuration to generate the build output required for deployment.
 - Review the build project settings and click on the "Create build project" button to create AWS CodeBuild project.
+  ![output](images/buildstage.png)
+  ![output](images/buildlog.png)
+  ![output](images/buildlog2.png)
 
 
-## 3. Trigger the CI Process
+
+## 3. Configure AWS CodeDeploy
+Here, we'll configure AWS CodeDeploy to deploy Python application based on the specifications we define. CodeDeploy will take care of deploying  our application. Follow these steps:
+
+- In the AWS Management Console, navigate to the AWS CodeDeploy service.
+- Click on the "Create Application" button.
+- Provide a name for it.
+- Then create a Deployment group.
+- Then after create deployment and run.
+
+  ![output](images/appli.png)
+  ![output](images/dgroup.png)
+  ![output](images/Dlogs.png)
+ 
+- Create EC2 instance and attach policie CodeDeploy then attach it to CodeDeploy Service.
+  
+ ![output](images/ec2.png)
+
+ ![output](images/T-View.png)
+
+## 4. Trigger the CI Process
 Here, we'll trigger the CI process by making a change to our GitHub repository:
 
 - Go to GitHub repository and make a change to your Python application's source code. It could be a bug fix, a new feature, or any other change which we want to introduce.
